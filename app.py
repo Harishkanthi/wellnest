@@ -139,7 +139,8 @@ def home():
         symptom_6 = request.form.get('symptom_6')
         pred_disease = symptoms_to_disease(symptom_1,symptom_2,symptom_3,symptom_4,symptom_5,symptom_6)
         return jsonify({"predicted_disease": pred_disease})
-
+    else:
+        return jsonify({"message": "Welcome to the Disease Prediction API. Please use a POST request to submit symptoms."})        
 
 if __name__ == '__main__':
     app.run(port=3000, debug=True)
